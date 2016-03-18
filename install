@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+# VI
+
+VUNDLE=$HOME/.vim/bundle/Vundle.vim 
+JEDI=$HOME/.vim/bundle/jedi-vim
+
+if [[ ! -d $HOME/.vim/bundle/Vundle.vim ]]
+then
+	git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE
+else
+	cd VUNDLE && git pull
+
+
+cd ~/.vim/bundle/jedi-vim && git submodule update --init
+vim +PluginInstall +qall
+
+# ZSH

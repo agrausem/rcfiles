@@ -1,0 +1,14 @@
+# active les commentaires dans la ligne de commande
+setopt interactivecomments
+# active les globs etendus 
+setopt extendedglob
+# active la gestion des range
+setopt braceccl
+# active les messages d'erreur sur les variables on déclarées
+setopt nounset
+# récupère les exos
+udpate-exos () {
+    pushd ~
+    curl ramirez/e/training/unix/exos.tgz | gzip -d | tar x
+    popd
+}

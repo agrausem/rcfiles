@@ -1,0 +1,107 @@
+" change le mapleader
+let mapleader = ","
+" changer de buffer
+" précédent buffer en mode normal
+nnoremap <Leader>; :bp<CR>
+" précédent buffer en mode normal
+nnoremap ;; :bn<CR>
+
+" active une completion utile en mode commande
+set wildmode=list:longest
+" active les numéros de ligne
+set number
+" surbrillance des recherches
+set hlsearch
+set incsearch
+" active le mode very magick pour chaque recherche
+noremap / /\v
+" active la barre de statut même quand une seule fenêtre est ouverte
+set laststatus=2
+
+" execute
+" zsh
+command -range ZshExecute <line1>,<line2>y|sp|ene|0put|%!zsh
+vnoremap <Leader>e :ZshExecute<CR>
+nnoremap <Leader>e :ZshExecute<CR>
+nnoremap <Leader>ea %:ZshExecute<CR>
+
+
+" encoding
+set encoding=utf-8
+
+" unnecessary whitespace
+" au BufRead,BufNewFile *.py,*.html,*.css,*.less match BadWhitespace /\s\+$/
+
+
+
+" vundle conf
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" plugins are here
+Plugin 'VundleVim/Vundle.vim'
+
+""""""""""
+" python "
+" ------ "
+""""""""""
+" completion (jedi)
+" https://github.com/davidhalter/jedi-vim
+" Completion <C-Space>
+" Goto assignments <leader>g (typical goto function)
+" Goto definitions <leader>d (follow identifier as far as possible, includes imports and statements)
+" Show Documentation/Pydoc K (shows a popup with assignments)
+" Renaming <leader>r
+" Usages <leader>n (shows all the usages of a name)
+" Open module, e.g. :Pyimport os (opens the os module)
+Plugin 'davidhalter/jedi-vim'
+" no docstring window on completion
+autocmd FileType python setlocal completeopt-=preview
+
+" python indentation
+Plugin 'vim-scripts/indentpython.vim'
+
+"""""""
+" git "
+" --- "
+"""""""
+" gestion complète de son dépôt Git
+" https://github.com/tpope/vim-fugitive
+Plugin 'tpope/vim-fugitive'
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" gestion du diff et fonctionnalités diverses
+" https://github.com/airblade/vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+" set updatetime=250
+
+"""""""""
+" utils "
+" ----- "
+"""""""""
+" auto-load scripts library
+" https://github/com/xolox/vim-misc
+" Plugin 'xolox/vim-misc'
+" gestion aisés et automatisés des ctags
+" https://github.com/xolox/vim-eastags
+" Plugin 'xolox/vim-easytags'
+" barre latérale se basant sur les ctags
+
+" commentaires
+" https://github.com/tpope/vim-commentary
+" (count)gcc : (?) line(s)
+" gc (visual or motion : gcap)
+" command -> :7,17Commentary
+" gcgc ?
+Plugin 'tpope/vim-commentary'
+
+" sélection de blocks indentés
+" (count)ai
+" (count)ii
+Plugin 'michaeljsmith/vim-indent-object'
+
+call vundle#end()
+filetype plugin indent on
