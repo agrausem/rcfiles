@@ -17,6 +17,9 @@ set incsearch
 noremap / /\v
 " active la barre de statut même quand une seule fenêtre est ouverte
 set laststatus=2
+" Surligne la colonne du dernière caractère autorisé par textwidth
+set cc=+1
+highlight colorcolumn ctermbg=darkblue
 
 " execute
 " zsh
@@ -77,6 +80,23 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " https://github.com/airblade/vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
 " set updatetime=250
+
+
+"""""""""""""""""
+" Syntax checks "
+" ------------- "
+"""""""""""""""""
+
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
 
 """""""""
 " utils "

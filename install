@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 # VI
-
-VUNDLE=$HOME/.vim/bundle/Vundle.vim 
-JEDI=$HOME/.vim/bundle/jedi-vim
+VI_HOME=$HOME/.vim
+VUNDLE=$VI_HOME/bundle/Vundle.vim 
+JEDI=$VI_HOME/.vim/bundle/jedi-vim
 
 if [[ ! -d $HOME/.vim/bundle/Vundle.vim ]]
 then
@@ -17,6 +17,11 @@ fi
 if [[ ! -a $HOME/.vimrc ]]
 then
 	ln -s $(pwd)/vim/vimrc $HOME/.vimrc
+fi
+
+if [[ ! -d $VI_HOME/ftplugin ]]
+then
+	ln -s $(pwd)/vim/ftplugin $VI_HOME/ftplugin
 fi
 
 cd $VUNDLE
