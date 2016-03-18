@@ -9,10 +9,32 @@ if [[ ! -d $HOME/.vim/bundle/Vundle.vim ]]
 then
 	git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE
 else
-	cd VUNDLE && git pull
+	cd $VUNDLE
+	git pull
+	cd -
+fi
 
+if [[ ! -a $HOME/.vimrc ]]
+then
+	ln -s $(pwd)/vim/vimrc $HOME/.vimrc
+fi
 
-cd ~/.vim/bundle/jedi-vim && git submodule update --init
+cd $VUNDLE
+git submodule update --init
+cd -
+
 vim +PluginInstall +qall
 
 # ZSH
+
+if [[ ! -a $HOME/.zshenv ]]
+then
+	ln -s $(pwd)/zsh/zshenv $HOME/.zshenv
+	source $HOME/.zshenv
+fi
+
+if [[ ! -a $HOME/.zshrc ]]
+then
+	ln -s $(pwd)/zsh/zshrc $HOME/.zshrc
+	source $HOME/.zshrc
+fi
