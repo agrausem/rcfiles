@@ -2,7 +2,7 @@
 let mapleader = ","
 " changer de buffer
 " précédent buffer en mode normal
-nnoremap <Leader>; :bp<CR>
+nnoremap <Leader>, :bp<CR>
 " précédent buffer en mode normal
 nnoremap ;; :bn<CR>
 
