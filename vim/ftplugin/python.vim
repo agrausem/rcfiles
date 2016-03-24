@@ -7,3 +7,4 @@ set expandtab
 set autoindent
 set fileformat=unix
 
+let python_hightlight_all=1

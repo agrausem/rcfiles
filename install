@@ -24,6 +24,11 @@ then
 	ln -s $(pwd)/vim/ftplugin $VI_HOME/ftplugin
 fi
 
+if [[ ! -d $VI_HOME/plugin ]]
+then
+	ln -s $(pwd)/vim/plugin $VI_HOME/plugin
+fi
+
 cd $VUNDLE
 git submodule update --init
 cd -
