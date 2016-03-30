@@ -1,0 +1,19 @@
+#compdef workon
+
+_arguments "1: :($(lsvirtualenv -b))"
+
+# _workon() {
+# 	venv=$(ls $WORKON_HOME)
+# 	echo $venv
+# 	for env in venv
+# 	do
+# 		if [[ -f "$WORKON_HOME/$env/bin/activate" ]]
+# 		then
+# 			compadd "$@" "$env"
+# 		fi
+# 	done
+# }
+
+# _workon
+
+

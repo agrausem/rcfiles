@@ -48,3 +48,9 @@ then
 	ln -s $(pwd)/zsh/zshrc $HOME/.zshrc
 	source $HOME/.zshrc
 fi
+
+if [[ ! -d $HOME/.zsh/completion ]]
+then
+	mkdir -p $HOME/.zsh/
+	ln -s $(pwd)/zsh/completion $HOME/.zsh/
+fi
