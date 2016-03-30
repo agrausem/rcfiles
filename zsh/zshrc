@@ -62,3 +62,19 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 
 export PATH="$PATH:/home/arnaud/.guix-profile/bin"
+
+source $HOME/.antigen/antigen.zsh
+
+# antigen
+antigen use oh-my-zsh
+
+# plug-ins
+# default repo (oh-my-zsh)
+antigen bundle pip
+antigen bundle command-not-found
+
+# others
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# load plugins
+antigen apply

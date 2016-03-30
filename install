@@ -37,6 +37,15 @@ vim +PluginInstall +qall
 
 # ZSH
 
+if [[ ! -d $HOME/.antigen ]]
+then
+	git clone git@github.com:zsh-users/antigen.git $HOME/.antigen
+else
+	cd $HOME/.antigen
+	git pull
+	cd -
+fi
+
 if [[ ! -a $HOME/.zshenv ]]
 then
 	ln -s $(pwd)/zsh/zshenv $HOME/.zshenv
