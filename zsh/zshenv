@@ -12,3 +12,7 @@ udpate-exos () {
     curl ramirez/e/training/unix/exos.tgz | gzip -d | tar x
     popd
 }
+
+# Debian bug resolved
+DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
+skip_global_compinit=1

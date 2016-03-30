@@ -81,6 +81,13 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 Plugin 'airblade/vim-gitgutter'
 " set updatetime=250
 
+""""""""""""
+" Filetype "
+" -------- "
+""""""""""""
+
+" Jade template engine
+Plugin 'digitaltoad/vim-pug.git'
 
 """""""""""""""""
 " Syntax checks "
