@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+RPROMPT="$_OLD_RPROMPT"
