@@ -68,14 +68,3 @@ then
 	mkdir -p $HOME/.zsh/
 	ln -s $(pwd)/zsh/completion $HOME/.zsh/
 fi
-
-
-# VIRTUALENVWRAPPER
-
-if [[ -n "$WORKON_HOME" ]]
-then
-	rm $WORKON_HOME/postactivate
-	ln -s $(pwd)/virtualenvwrapper/postactivate $WORKON_HOME/postactivate
-	rm $WORKON_HOME/postdeactivate
-	ln -s $(pwd)/virtualenvwrapper/postdeactivate $WORKON_HOME/postdeactivate
-fi
