@@ -58,6 +58,11 @@ then
 	source $HOME/.zshrc
 fi
 
+if [[ ! -a $HOME/.zsh/plugins ]]
+then
+	ln -s $(pwd)/zsh/plugins $HOME/.zsh/plugins
+fi
+
 if [[ ! -d $HOME/.zsh/completion ]]
 then
 	mkdir -p $HOME/.zsh/

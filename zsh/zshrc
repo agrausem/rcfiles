@@ -76,5 +76,10 @@ antigen bundle command-not-found
 # others
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# local plugins
+antigen bundle "$HOME/.zsh/plugins/docker" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/oracle" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/beets" --no-local-clone
+
 # load plugins
 antigen apply
