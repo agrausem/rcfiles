@@ -73,6 +73,9 @@ antigen use oh-my-zsh
 antigen bundle pip
 antigen bundle command-not-found
 
+# completion
+antigen bundle lukechilds/zsh-better-npm-completion
+
 # others
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -80,6 +83,25 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle "$HOME/.zsh/plugins/docker" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/oracle" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/beets" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/chouffe" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/todo" --no-local-clone
 
 # load plugins
 antigen apply
+
+export ONE_XMLRPC="https://one.unistra.fr:2633/RPC2"
+export GITLAB_TOKEN='94nu-uHjjzVXeTAPj85B'
+
+# todo binaries
+# doc https://github.com/asb/sh-todo
+export PATH="$PATH:$HOME/.libs/sh-todo"
+
+
+# my todo
+# me
+
+# minikube
+# export MIP=$(minikube ip)
+
+# kubectl
+source <(kubectl completion zsh)

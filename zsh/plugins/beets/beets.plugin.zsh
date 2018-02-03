@@ -13,6 +13,12 @@ function enable_beets () {
 		_music_play=$_music_volume/playlists
 		_kodi_lists=".kodi/userdata/playlists"
 
+		function bartist () {
+			artist="$1"
+			shift
+			beet ls $@ "albumartist:$artist"
+		}
+
 		function mount_chouffe_music () {
 			if [ ! -d $_music_metal ] 
 			then
@@ -74,7 +80,7 @@ function enable_beets () {
 		}
 
 		mount_chouffe_music
-		alias show_imported="_show_playlist $_music_play/imported.m3u"
+		alias show_imported="show_playlist $_music_play/imported.m3u"
 		workon beets
 	else
 		echo 'chouffe is not reachable. Aborting...'
@@ -89,6 +95,7 @@ function disable_beets () {
 	unset $_music_metal
 	unset $_music_play
 	unset $_kodi_lists
+	unfunction bartist
 	unfunction mount_chouffe_music
 	unfunction umount_chouffe_music
 	unfunction show_playlist
