@@ -79,3 +79,19 @@ then
 	rm $WORKON_HOME/postdeactivate
 	ln -s $(pwd)/virtualenvwrapper/postdeactivate $WORKON_HOME/postdeactivate
 fi
+
+# SDKMAN - ALL
+
+source $HOME/.zshrc
+
+sdk install java 9.0.4-oracle
+sdk default java 9.0.4-oracle
+sdk install groovy 2.4.13
+sdk install maven 3.5.2
+sdk install gradle 4.5.1
+sdk install kotlin 1.2.21
+sdk install springboot 1.5.10.RELEASE
+
+ln -s $SDKMAN_DIR/candidates/springboot/current/shell-completion/zsh/_spring $(pwd)/zsh/completion/_spring
+
+source $HOME/.zshrc
