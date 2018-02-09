@@ -85,6 +85,7 @@ antigen bundle "$HOME/.zsh/plugins/oracle" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/beets" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/chouffe" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/todo" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/sdkman" --no-local-clone
 
 # load plugins
 antigen apply
