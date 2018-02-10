@@ -1,4 +1,5 @@
-
+alias sync_audio_library='rsync --msgs2stderr --delete-after --exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/*classique/*" -rzhu --progress chouffe:/volume1/music /home/arnaud/Musique'
+alias sync_local_audio_library='rsync --msgs2stderr --delete-after --exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/*classique/*" -rzhu --progress lchouffe:/volume1/music /home/arnaud/Musique'
 
 
 
