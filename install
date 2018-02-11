@@ -80,6 +80,16 @@ then
 	ln -s $(pwd)/virtualenvwrapper/postdeactivate $WORKON_HOME/postdeactivate
 fi
 
+# VSCODE
+#
+if [[ -n "$HOME/.config/Code" ]]
+then
+	rm $HOME/.config/Code/User/settings.json
+	ln -s $(pwd)/User/settings.json "$HOME/.config/Code/User/settings.json"
+	rm -r $HOME/.config/Code/Workspaces
+	ln -s $(pwd)/Workspaces "$HOME/.config/Code/Workspaces"
+fi
+
 # SDKMAN - ALL
 
 source $HOME/.zshrc

@@ -1,0 +1,16 @@
+{
+    "extensions.ignoreRecommendations": false,
+    "python.pythonPath": "/usr/bin/python3.5",
+    "python.venvPath": "~/.virtualenvs",
+    "python.linting.pep8Enabled": true,
+    "python.formatting.provider": "none",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "all",
+    "files.exclude": {
+        "**/.vscode/": true,
+	"**/__pycache__": true,
+	"**/*.pyc": true
+    }
+}

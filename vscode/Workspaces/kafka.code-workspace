@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "mom/kafka/demo1",
+			"name": "kafka_demo1"
+		},
+		{
+			"path": "mom/kafka/demo2",
+			"name": "kafka_demo2"
+		},
+		{
+			"path": "mom/kafka/groupes",
+			"name": "groupe_demo",
+		},
+		{
+			"path": "mom/kafka",
+			"name": "root",
+		}
+	],
+	"settings": {
+		"pgsql.connection": "postgres://consumer:consumer@localhost:10001/consumer",
+		"docker-compose.files": [
+			"docker-compose.yml"
+		],
+		"docker-compose.projectNames": [],
+		"python.pythonPath": "/home/arnaud/.virtualenvs/kafka/bin/python",
+		"python.linting.pylintPath": "/home/arnaud/.virtualenvs/kafka/bin/pylint",
+		"python.linting.pep8Path": "/home/arnaud/.virtualenvs/kafka/bin/pep8",
+
+	}
+}
