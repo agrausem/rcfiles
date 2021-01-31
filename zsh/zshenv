@@ -1,3 +1,15 @@
+
+# virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+if [[ $(minikube status | grep Running ) ]]
+then
+	export MIP=$(minikube ip)
+fi
+
 # active les commentaires dans la ligne de commande
 setopt interactivecomments
 # active les globs etendus 
@@ -5,13 +17,13 @@ setopt extendedglob
 # active la gestion des range
 setopt braceccl
 # active les messages d'erreur sur les variables on déclarées
-setopt nounset
+# setopt nounset
 # récupère les exos
-udpate-exos () {
-    pushd ~
-    curl ramirez/e/training/unix/exos.tgz | gzip -d | tar x
-    popd
-}
+# udpate-exos () {
+#     pushd ~
+#     curl ramirez/e/training/unix/exos.tgz | gzip -d | tar x
+#     popd
+# }
 
 # Debian bug resolved
 DEBIAN_PREVENT_KEYBOARD_CHANGES=yes

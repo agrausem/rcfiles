@@ -1,15 +1,21 @@
-alias sync_audio_library='rsync --msgs2stderr --delete-after --exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/*classique/*" -rzhu --progress chouffe:/volume1/music /home/arnaud/Musique'
-alias sync_local_audio_library='rsync --msgs2stderr --delete-after --exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/*classique/*" -rzhu --progress lchouffe:/volume1/music /home/arnaud/Musique'
+excludes='--exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/concert/*" --exclude="*/classique/*"'
 
 
+function sync_local_library () {
+	rsync --delete-after --exclude="*/other/*" --exclude="*/@eaDir/*" --exclude="*/concert/*" --exclude="*/classique/*" -rzhu --progress -e 'ssh -p 10668' root@$CHOUFFE_VOLUME_URI/music $HOME/Musique
+}
+
+function sync_library () {
+	rsync --msgs2stderr --delete-after $excludes -rzhu --progress -e 'ssh -p 10668' chouffe:/volume1/music $HOME/Musique
+}
 
 function enable_beets () {
 
-	ping -q -c2 lchouffe >> /dev/null
+	ping -q -c2  $CHOUFFE >> /dev/null
 
 	if [ $? -eq 0 ]
 	then
-		_music_volume=/media/chouffe/music
+		_music_volume=$MOUNT_CHOUFFE/music
 		_music_metal=$_music_volume/metal
 		_music_play=$_music_volume/playlists
 		_kodi_lists=".kodi/userdata/playlists"
@@ -23,7 +29,7 @@ function enable_beets () {
 		function mount_chouffe_music () {
 			if [ ! -d $_music_metal ] 
 			then
-				sudo mount -o defaults,rw lchouffe:/volume1/music $_music_volume
+				sudo mount -o defaults,rw $CHOUFFE_VOLUME_URI/music $_music_volume
 			fi
 		}
 

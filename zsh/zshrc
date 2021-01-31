@@ -7,19 +7,13 @@ prompt adam1
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-# bindkey -e
+bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
-# custom completion scripts
-fpath=($HOME/.zsh/completion $fpath)
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete # _correct _approximate
@@ -41,6 +35,9 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
+# custom completion scripts
+fpath=($HOME/.zsh/completion $fpath)
+
 # gestion simple de tmux
 
 t () {
@@ -53,15 +50,10 @@ t () {
 # active la ligne de commande en mode VI
 # bindkey -v
 
-# virtualenvwrapper
+
 unsetopt nounset
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
-
-export PATH="$PATH:/home/arnaud/.guix-profile/bin"
+# export PATH="$PATH:/home/arnaud/.guix-profile/bin"
 
 source $HOME/.antigen/antigen.zsh
 
@@ -72,9 +64,13 @@ antigen use oh-my-zsh
 # default repo (oh-my-zsh)
 antigen bundle pip
 antigen bundle command-not-found
+antigen bundle git
+antigen bundle kubectl
+antigen bundle ng
 
 # completion
-antigen bundle lukechilds/zsh-better-npm-completion
+# antigen bundle lukechilds/zsh-better-npm-completion
+antigen bundle zsh-users/zsh-completions
 
 # others
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -86,18 +82,28 @@ antigen bundle "$HOME/.zsh/plugins/beets" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/chouffe" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/todo" --no-local-clone
 antigen bundle "$HOME/.zsh/plugins/sdkman" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/k8s" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/java" --no-local-clone
+antigen bundle "$HOME/.zsh/plugins/poetry" --no-local-clone
 
 # load plugins
 antigen apply
 
-export ONE_XMLRPC="https://one.unistra.fr:2633/RPC2"
-export GITLAB_TOKEN='94nu-uHjjzVXeTAPj85B'
+# Use modern completion system
+autoload -Uz compinit && compinit -i
+
+# virtualenvwrapper
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+
+# export ONE_XMLRPC="https://one.unistra.fr:2633/RPC2"
+# export GITLAB_TOKEN='94nu-uHjjzVXeTAPj85B'
 
 # todo binaries
 # doc https://github.com/asb/sh-todo
-export PATH="$PATH:$HOME/.libs/sh-todo"
-
-
+# export PATH="$PATH:$HOME/.libs/sh-todo"
 # my todo
 # me
 
@@ -105,4 +111,18 @@ export PATH="$PATH:$HOME/.libs/sh-todo"
 # export MIP=$(minikube ip)
 
 # kubectl
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="/home/agrausem/.sdkman"
+# [[ -s "/home/agrausem/.sdkman/bin/sdkman-init.sh" ]] && source "/home/agrausem/.sdkman/bin/sdkman-init.sh"
+# prompt adam1
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.yarn/bin/bin:$HOME/.local/bin:/snap/bin"
+
+export PYTHONPATH="$PYTHONPATH:$HOME/.local/python/libs"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export PATH="$HOME/.poetry/bin:$PATH"

@@ -1,16 +1,157 @@
 {
     "extensions.ignoreRecommendations": false,
-    "python.pythonPath": "/usr/bin/python3.5",
+    "python.pythonPath": "/home/agrausem/.virtualenvs/ktop/bin/python",
     "python.venvPath": "~/.virtualenvs",
-    "python.linting.pep8Enabled": true,
+    "python.linting.pycodestyleEnabled": true,
     "python.formatting.provider": "none",
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "all",
     "files.exclude": {
+        "**/__pycache__": true,
+        "**/.mypy_cache": true,
         "**/.vscode/": true,
-	"**/__pycache__": true,
-	"**/*.pyc": true
-    }
+        "**/*.pyc": true,
+        "**/coverage/": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "python.linting.pycodestylePath": "/home/agrausem/.local/bin/pycodestyle",
+    "python.jediPath": "/usr/local/lib/python3.6/dist-packages/",
+    "git.autofetch": true,
+    "window.zoomLevel": 3,
+    "files.associations": {
+        "*.pug": "pug"
+    },
+    "workbench.activityBar.visible": true,
+    "window.menuBarVisibility": "default",
+    "emmet.triggerExpansionOnTab": true,
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": true
+    },
+    "sonarlint.connectedMode.servers": [
+        {
+            "serverId": "pcscol",
+            "serverUrl": "http://sonar.pc-scol.fr",
+            "token": "163b995cd5abe173f8b4033aa4037a2c33e24f3b"
+        }
+    ],
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python3 -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run"
+    },
+    "breadcrumbs.enabled": true,
+    "window.titleBarStyle": "custom",
+    "prettier.tslintIntegration": true,
+    "sonarqube-inject.testsPath": "src/**/*.spec.ts",
+    "sonarqube-inject.enableLinter": false,
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.jediEnabled": false,
+    "jira-plugin.workingProject": "SCOL",
+    "jira-plugin.baseUrl": "https://jira.pc-scol.fr",
+    "jira-plugin.username": "agrausem",
+    "jira-plugin.defaultJqlSearch": "project = PC-Scol AND type = Story  AND Equipe = STRASBOURG AND Sprint in openSprints() AND resolution  = Unresolved  ORDER BY status DESC",
+    "jira-plugin.enableCheckForNotifications": true,
+    "jira-plugin.workingIssueStatues": "En dev",
+    "jira-plugin.trackingTimeMode": "never",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/home/agrausem/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path": "/home/agrausem/.vs-kubernetes/tools/draft/linux-amd64/draft",
+        "vs-kubernetes.knownKubeconfigs": [
+            "/home/agrausem/.kube/dev2.config.yaml",
+            "/home/agrausem/.kube/test-sxb.prod",
+            "/home/agrausem/.kube/po-sxb.config.yaml",
+            "/home/agrausem/kubeconfig-lecture-audit.yaml",
+            "/home/agrausem/.kube/test-sxb.config.yaml"
+        ],
+        "vs-kubernetes.kubeconfig": "/home/agrausem/.kube/dev2.config.yaml",
+        "vs-kubernetes.minikube-path": "/home/agrausem/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vs-kubernetes.minikube-path.linux": "/home/agrausem/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    },
+    "sonarlint.ls.javaHome": "/home/agrausem/.sdkman/candidates/java/current",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "[avro]": {},
+    "workbench.colorTheme": "Default Light+",
+    "latex-workshop.latex.external.build.command": "pdflatex -shell-escape %DOC%",
+    "todo-tree.tree.showScanModeButton": false,
+    "python.linting.flake8Path": "/home/agrausem/.local/bin/flake8",
+    "python.linting.mypyPath": "/home/agrausem/.local/bin/mypy",
+    "gitlens.views.repositories.files.layout": "tree",
+    "gitlens.views.repositories.location": "gitlens",
+    "gitlens.views.fileHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "python.languageServer": "Microsoft",
+    "java.semanticHighlighting.enabled": false,
+    "java.project.importHint": false,
+    "workbench.editorAssociations": []
 }
