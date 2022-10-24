@@ -28,3 +28,6 @@ setopt braceccl
 # Debian bug resolved
 DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
 skip_global_compinit=1
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+export ZDOTDIR="${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
